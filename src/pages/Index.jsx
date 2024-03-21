@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Heading, Text, VStack, HStack, Avatar, Stat, StatLabel, StatNumber, Progress, Divider, Container, Grid, GridItem, useColorModeValue, Image, Table, Thead, Tbody, Tr, Th, Td } from "@chakra-ui/react";
+import { Box, Heading, Text, VStack, HStack, Avatar, Stat, StatLabel, StatNumber, Progress, Divider, Container, Grid, GridItem, useColorModeValue } from "@chakra-ui/react";
 
 const projects = [
   {
@@ -45,43 +45,20 @@ const people = [
   // Add more people...
 ];
 
-const grantsOverTime = [
-  { quarter: "2020 Q1", grant: 500000 },
-  { quarter: "2020 Q2", grant: 750000 },
-  { quarter: "2020 Q3", grant: 1000000 },
-  { quarter: "2020 Q4", grant: 1200000 },
-  { quarter: "2021 Q1", grant: 1500000 },
-  { quarter: "2021 Q2", grant: 1750000 },
-  { quarter: "2021 Q3", grant: 2000000 },
-  { quarter: "2021 Q4", grant: 2200000 },
-  { quarter: "2022 Q1", grant: 2500000 },
-  { quarter: "2022 Q2", grant: 2750000 },
-  { quarter: "2022 Q3", grant: 3000000 },
-  { quarter: "2022 Q4", grant: 3200000 },
-  { quarter: "2023 Q1", grant: 3500000 },
-  { quarter: "2023 Q2", grant: 3750000 },
-  { quarter: "2023 Q3", grant: 4000000 },
-  { quarter: "2023 Q4", grant: 4200000 },
-  { quarter: "2024 Q1", grant: 4500000 },
-];
-
 const Index = () => {
   const totalGrant = projects.reduce((sum, project) => sum + project.grant, 0);
 
   return (
     <Container maxW="container.xl" py={8}>
-      <HStack mb={8}>
-        <Image src="https://www.forskningsradet.no/resources/2022.05/forskningsradet-logo-norsk-web.svg" alt="Research Council of Norway Logo" h={12} />
-        <Heading as="h1" size="2xl" textAlign="center" color="purple.500">
-          Avo Consulting - Research Council of Norway Grants
-        </Heading>
-      </HStack>
+      <Heading as="h1" size="2xl" mb={8} textAlign="center" color="teal.500">
+        Research Council of Norway Grants
+      </Heading>
 
       <Grid templateColumns="repeat(2, 1fr)" gap={8}>
         <GridItem>
           <VStack align="stretch" spacing={6}>
-            <Heading as="h2" size="xl" color="purple.400">
-              Pending Applications
+            <Heading as="h2" size="xl" color="teal.400">
+              Approved Projects
             </Heading>
             {projects.map((project, index) => (
               <Box key={index} p={4} borderWidth={1} borderRadius="md" boxShadow="md" bg={useColorModeValue("gray.100", "gray.700")}>
@@ -99,8 +76,8 @@ const Index = () => {
 
         <GridItem>
           <VStack align="stretch" spacing={6}>
-            <Heading as="h2" size="xl" color="purple.400">
-              Approved Projects
+            <Heading as="h2" size="xl" color="teal.400">
+              Pending Applications
             </Heading>
             {applications.map((application, index) => (
               <Box key={index} p={4} borderWidth={1} borderRadius="md" boxShadow="md" bg={useColorModeValue("gray.100", "gray.700")}>
@@ -117,34 +94,14 @@ const Index = () => {
 
       <Divider my={8} />
 
-      <Heading as="h2" size="xl" mb={4} color="purple.400">
-        Grants Received Over Time
-      </Heading>
-      <Table variant="simple" size="sm">
-        <Thead>
-          <Tr>
-            <Th>Quarter</Th>
-            <Th isNumeric>Grant (NOK)</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {grantsOverTime.map((data, index) => (
-            <Tr key={index}>
-              <Td>{data.quarter}</Td>
-              <Td isNumeric>{data.grant.toLocaleString()}</Td>
-            </Tr>
-          ))}
-        </Tbody>
-      </Table>
-
       <Stat mb={8}>
         <StatLabel fontSize="xl">Total Grant Received</StatLabel>
-        <StatNumber fontSize="4xl" color="purple.500">
+        <StatNumber fontSize="4xl" color="teal.500">
           {totalGrant.toLocaleString()} NOK
         </StatNumber>
       </Stat>
 
-      <Heading as="h2" size="xl" mb={4} color="purple.400">
+      <Heading as="h2" size="xl" mb={4} color="teal.400">
         Project Responsibles
       </Heading>
       <HStack spacing={8} justifyContent="center">
